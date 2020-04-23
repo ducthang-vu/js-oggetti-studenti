@@ -11,5 +11,5 @@ var student = {
 console.log(student);
 
 for (var key in student) {
-    console.log(key + ': ' + student[key])
+    console.log(key + ': ' + student[key]);
 };
