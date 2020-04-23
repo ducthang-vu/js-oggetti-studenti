@@ -1,5 +1,100 @@
+/* GENERAL */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+body {
+    padding: 50px;
+    text-align: center;
+    background: #000;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* APP */
+.app {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 15px;
+    width: 300px;
+    background: pink;
+    border: 5px solid lightpink;
+    border-radius: 15px;
+}
+
+
+.app h1 {
+    color: purple;
+}
+
+
+.app .input-row {
+    margin: 10px 0;
+}
+
+    #input {
+        padding: 10px;
+        max-width: 100%;
+        border-radius: 10px;
+        outline: 0;
+    }
+
+    #input-button {
+        padding: 10px;
+        color: #fff;
+        background: purple;
+        border-color: pink;
+        outline: 0;
+        border-radius: 10px;
+    }
+
+
+#content {
+    height: 300px;
+    padding: 10px;
+    background: snow;
+    overflow: auto;
+    border-radius: 15px;
+}
+
+    .message-wrapper {
+        padding: 10px;
+    }
+
+    .message-wrapper.sent {
+        text-align: right;
+    }
+
+    .message-wrapper.received {
+        text-align: left;
+    }
+
+        .mess-box {
+            display: inline-block;
+            padding: 10px;
+            min-width: 50%;
+            max-width: 85%;
+            border-radius: 10px;
+            word-break: break-all;
+        }
+
+        .message-wrapper.sent .mess-box {
+            text-align: left;
+            color: #fff;
+            background: purple;
+        }
+
+        .message-wrapper.received .mess-box {
+            color: red;
+            background: pink;
+        }
+
+            .mess-box .message-time {
+                font-size: 60%;
+                text-align: right;
+            }
