@@ -10,32 +10,61 @@ var source = document.getElementById("entry-template").innerHTML;
 var template = Handlebars.compile(source);
 
 
+var chatHistory = [
+    {
+        class: "received",
+        text: "Hi! How are you?",
+        time: "09.01"
+    },
+    
+    {
+        class: "sent",
+        text: "Hi! How are you?",
+        time: "09.01"
+    },
+    
+    {
+        class: "received",
+        text: "Hi! How are you?",
+        time: "09.01"
+    }
+];
+
+
+
 /* FUNCTIONS */
-function printMess(message, sender) {
-    var now = new Date();
+function printMessage(messageObject) {
+    content.innerHTML += template(messageObject);
+    content.lastElementChild.scrollIntoView(false);
+}
 
-    var context = {
-        class:  sender,
-        text: message,
+
+function printHistory() {
+    chatHistory.forEach(message => printMessage(message));
+}
+
+
+function formatMessage(sender, text) {
+    var now = new Date;
+    return {
+        class: sender,
+        text: text,
         time: (now.getHours() + '.' + now.getMinutes()).replace(/\b([\d])\b/, '0$&')
-    };
-
-    content.innerHTML += template(context);
-    content.lastElementChild.scrollIntoView(false)
+    }
 }
 
 
 function sendingBot() {
     setTimeout(() => {
-        printMess('Hello!', 'received')
+        printMessage(formatMessage('received', 'Hello!'))
     },
     1000);
 }
 
 
 function sendUser() {
-    if (input.value) {
-        printMess(input.value, 'sent');
+    if (input.value.trim()) {
+        printMessage(formatMessage('sent', input.value.trim()));
         sendingBot();
     }
 
@@ -44,8 +73,11 @@ function sendUser() {
 }
 
 
+
 /* MAIN SCRIPT */
+printHistory();
+
 button.addEventListener('click', sendUser);
 document.addEventListener('keyup', function(e) {
-    if (e.which == 13 || e.keyCode == 13) sendUser()
+    if (e.which == 13 || e.keyCode == 13) sendUser();
 });
