@@ -62,7 +62,7 @@ function sendingBot() {
 }
 
 
-function sendUser() {
+function sendingUser() {
     if (input.value.trim()) {
         printMessage(formatMessage('sent', input.value.trim()));
         sendingBot();
@@ -77,7 +77,7 @@ function sendUser() {
 /* MAIN SCRIPT */
 printHistory();
 
-button.addEventListener('click', sendUser);
-document.addEventListener('keyup', function(e) {
-    if (e.which == 13 || e.keyCode == 13) sendUser();
+button.addEventListener('click', sendingUser);
+document.addEventListener('keyup', e => {
+    if (e.which == 13 || e.keyCode == 13) sendingUser();
 });
