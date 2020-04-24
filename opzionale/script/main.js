@@ -19,14 +19,14 @@ var chatHistory = [
     
     {
         class: "sent",
-        text: "Hi! How are you?",
-        time: "09.01"
+        text: "Hi! well, and you?",
+        time: "09.05"
     },
     
     {
         class: "received",
-        text: "Hi! How are you?",
-        time: "09.01"
+        text: "Hi! I'm fine!",
+        time: "09.50"
     }
 ];
 
